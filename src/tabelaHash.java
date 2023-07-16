@@ -7,7 +7,12 @@ public class tabelaHash {
         this.vetor = new tabelaHash[10];
     }
     public void adicionar(String key, String valor){
+        int index = defineIndex(key);
+        if(vetor[index] == null){
 
+        }else{
+
+        }
     }
     public void remove(String key){
 
