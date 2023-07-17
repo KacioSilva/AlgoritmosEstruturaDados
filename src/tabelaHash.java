@@ -1,19 +1,21 @@
 public class tabelaHash {
     int size;
-    tabelaHash[] vetor = new tabelaHash[10];
+    int tableSize = 10;
+    HashTableEntry[] vetor;
 
     public tabelaHash(){
         this.size = 0;
-        this.vetor = new tabelaHash[10];
+        this.vetor = new HashTableEntry[tableSize];
     }
     public void adicionar(String key, String valor){
-        int index = defineIndex(key);
-        if(vetor[index] == null){
-
-        }else{
-
+        if(this.size / this.tableSize > 0.5){
+            reHash();
         }
+        int index = defineIndex(key);
+        vetor[index] = new HashTableEntry(key, valor);
+        size++;
     }
+
     public void remove(String key){
 
     }
@@ -28,12 +30,36 @@ public class tabelaHash {
     }
     private int defineIndex(String key){
         int index = key.hashCode() % this.vetor.length;
-        while(this.vetor[index] != null){
+        while(this.vetor[index] != null && this.vetor[index].getKey() != key){
             if(index == vetor.length-1){
                 index = 0;
             }else{
                 index++;
             }
         } return index;
+    }
+
+    public class HashTableEntry{
+        private String key;
+        private String valor;
+
+        public HashTableEntry(String key, String valor){
+            super();
+            this.key = key;
+            this.valor = valor;
+        }
+
+        public String getKey(){
+            return key;
+        }
+        public void setKey(String key){
+            this.key = key;
+        }
+
+        public String getValor(){
+            return this.valor;
+        }
+        public void setValor(String valor){
+        }
     }
 }
