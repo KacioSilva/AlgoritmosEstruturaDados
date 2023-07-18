@@ -8,15 +8,30 @@ public class tabelaHash {
         this.size = 0;
     }
 
+    //LÓGICA DE ADICIONAR VALORES E SOBRESCREVER CASO TENHAM AS MESMAS CHAVES
+
+//    public void adicionar(String key, String value){
+//      int index = defineIndex(key);
+//      if(vetor[index] == null){
+//          vetor[index] = new tabelaHashEntry(key, value);
+//          size++;
+//          if(this.size == this.sizeTable){
+//              reHash();
+//          }
+//      }else{
+//          vetor[index].setValue(value);
+//      }
+//    }
+
     public void adicionar(String key, String value){
         if(this.size / this.sizeTable > 0.5){
             reHash();
         }else{
             int index = defineIndex(key);
-            this.vetor[index] = new tabelaHashEntry(key, value);
-            size++;
+            vetor[index] = new tabelaHashEntry(key, value);
         }
     }
+
     private void reHash(){
         tabelaHashEntry[] newVetor = this.vetor;
         int newTableSize = this.sizeTable * 2;

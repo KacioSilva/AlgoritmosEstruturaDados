@@ -5,6 +5,7 @@ public class Main {
         hashTable.adicionar("Elemento 2", "B");
         hashTable.adicionar("Elemento 3", "C");
         hashTable.adicionar("Elemento 4", "D");
+        hashTable.adicionar("Elemento 4", "ADONAI");
 
         System.out.println(hashTable.get("Elemento 4"));
         System.out.println(hashTable.get("Elemento 3"));
