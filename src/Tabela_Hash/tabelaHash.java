@@ -13,6 +13,7 @@ public class tabelaHash {
         int index = defineIndex(key);
         if(this.vetor[index] == null){
             this.vetor[index] = new tabelaHashEntry(key, valor);
+            size++;
             if(size/tableSize > 0.5){
                 reHash();
             }
